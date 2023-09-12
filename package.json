@@ -1,0 +1,35 @@
+{
+  "name": "next-sanity-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@portabletext/react": "^3.0.7",
+    "@react-pdf/renderer": "^3.1.12",
+    "@types/node": "20.4.5",
+    "@types/react": "18.2.18",
+    "@types/react-dom": "18.2.7",
+    "canvas": "^2.11.2",
+    "eslint": "8.46.0",
+    "eslint-config-next": "13.4.12",
+    "next": "13.4.12",
+    "next-sanity": "^5.4.6",
+    "nodemailer": "^6.9.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-pdf": "^7.3.3",
+    "sanity": "^3.16.4",
+    "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.15",
+    "file-loader": "^6.2.0",
+    "postcss": "^8.4.29",
+    "tailwindcss": "^3.3.3"
+  }
+}
