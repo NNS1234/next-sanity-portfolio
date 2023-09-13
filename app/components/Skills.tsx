@@ -20,7 +20,7 @@ const Skills: React.FC = () => {
           {skills.map((skill, index) => (
             <div key={index} className="text-center">
               <Image src={`/icons/${skill}.svg`} alt={skill} width={96} // Set the width
-              height={96} className="w-20 h-20 mx-auto mb-2" />
+              height={96} className="animate-bounce w-20 h-20 mx-auto mb-2" />
               <p className="text-lg font-semibold">{skill}</p>
             </div>
           ))}
