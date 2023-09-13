@@ -1,44 +1,55 @@
 'use client'
-import { useState } from "react";
+import React,{ useState } from "react";
 
 export default function ContactForm() {
 	const [loading, setLoading] = useState(false);
-
+	const [messageSent, setMessageSent] = useState(false);
 	async function handleSubmit(event: any) {
-		event.preventDefault();
-		setLoading(true);
-
-		const data = {
-			name: String(event.target.name.value),
-			email: String(event.target.email.value),
-			message: String(event.target.message.value),
-		};
-    console.log(data)
-
-		const response = await fetch("/api/contact", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(data),
-		});
-
-		if (response.ok) {
-			console.log("Message sent successfully");
-			setLoading(false);
-			// reset the form
-			event.target.name.value = "";
-			event.target.email.value = "";
-			event.target.message.value = "";
-		}
-
-
-		if (!response.ok) {
-			console.log("Error sending message");
-			setLoading(false);
-		}
-	}
+		
+			event.preventDefault();
+			setLoading(true);
+		  
+			const data = new FormData(event.target);
+		  
+			try {
+			  const response = await fetch("https://formspree.io/f/mzblvzrz", {
+				method: "POST",
+				body: data,
+				headers: {
+				  Accept: "application/json",
+				},
+			  });
+		  
+			  if (response.ok) {
+				console.log("Message sent successfully");
+				setMessageSent(true);
+				setLoading(false);
+				event.target.reset();
+			  } else {
+				console.error("Error sending message");
+				setLoading(false);
+			  }
+			} catch (error) {
+			  console.error("Error sending message:", error);
+			  setLoading(false);
+			}
+		  }
+		  
+	
 	return (
+
+
+
+
+		// 
+
+
+		<div>
+      {messageSent ? (
+        <div className="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4">
+          Message sent successfully!
+        </div>
+      ) : null}
 		<form onSubmit={handleSubmit}>
 			<div className="w-full flex flex-col my-4">
 				<label className="font-bold text-gray-800" htmlFor="name">
@@ -88,6 +99,7 @@ export default function ContactForm() {
 				Send Message
 			</button>
 		</form>
+		</div>
 	);
 }
 
