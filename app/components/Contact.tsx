@@ -55,6 +55,7 @@ export default function ContactForm() {
             className="p-4 bg-gray-50 border border-gray-100"
             autoComplete="off"
             id="name"
+            name="name"
           />
         </div>
         <div className="w-full flex flex-col my-4">
