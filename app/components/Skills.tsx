@@ -4,6 +4,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 
+
 const Skills: React.FC = () => {
   const skills = [
     'Java', 'JavaScript', 'React', 'Next', 'TypeScript',
